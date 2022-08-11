@@ -11,6 +11,7 @@ DotenvParser.load_file(".env")
 
 config :xadara,
   env: Config.config_env(),
+  secret: System.fetch_env!("SECRET_KEY_BASE"),
   ip_url: System.fetch_env!("IP_URL"),
   kb_url: System.fetch_env!("KB_URL"),
   qr_url: System.fetch_env!("QR_URL"),
@@ -36,14 +37,14 @@ if config_env() == :prod do
   # want to use a different value for prod and you most likely don't want
   # to check this value into version control, so we use an environment
   # variable instead.
-  secret_key_base =
-    System.get_env("SECRET_KEY_BASE") ||
-      raise """
-      environment variable SECRET_KEY_BASE is missing.
-      You can generate one by calling: mix phx.gen.secret
-      """
+  secret_key_base = Application.get_env(:xadara, :secret)
+    # System.get_env("SECRET_KEY_BASE") ||
+    #   raise """
+    #   environment variable SECRET_KEY_BASE is missing.
+    #   You can generate one by calling: mix phx.gen.secret
+    #   """
 
-  host = System.get_env("PHX_HOST") || "example.com"
+  host = System.get_env("PHX_HOST") || "xadara.fly.dev"
   port = String.to_integer(System.get_env("PORT") || "4000")
 
   config :xadara, XadaraWeb.Endpoint,

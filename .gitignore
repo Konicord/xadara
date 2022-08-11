@@ -25,3 +25,5 @@ xadara-*.tar
 # Ignore .env
 .env
 
+fly.toml
+rel

@@ -38,11 +38,11 @@ if config_env() == :prod do
   # to check this value into version control, so we use an environment
   # variable instead.
   secret_key_base = Application.get_env(:xadara, :secret)
-    # System.get_env("SECRET_KEY_BASE") ||
-    #   raise """
-    #   environment variable SECRET_KEY_BASE is missing.
-    #   You can generate one by calling: mix phx.gen.secret
-    #   """
+  # System.get_env("SECRET_KEY_BASE") ||
+  #   raise """
+  #   environment variable SECRET_KEY_BASE is missing.
+  #   You can generate one by calling: mix phx.gen.secret
+  #   """
 
   host = System.get_env("PHX_HOST") || "xadara.fly.dev"
   port = String.to_integer(System.get_env("PORT") || "4000")

@@ -1,6 +1,7 @@
 defmodule XadaraWeb.Plugs.RateLimiter do
   import Plug.Conn
   use XadaraWeb, :controller
+
   alias Xadara.IP
   require Logger
 

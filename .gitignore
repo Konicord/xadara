@@ -27,3 +27,5 @@ xadara-*.tar
 
 fly.toml
 rel
+Dockerfile
+.dockerignore

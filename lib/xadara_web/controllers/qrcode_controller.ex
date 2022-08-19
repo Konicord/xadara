@@ -3,7 +3,7 @@ defmodule XadaraWeb.QRCodeController do
 
   import Xadara.QR
 
-  def index(conn, url, _params) do
+  def index(conn, %{"url" => url}) do
     send_resp(conn, 200, generate_qr(url))
   end
 end

@@ -13,12 +13,12 @@ defmodule Xadara.Disposable do
 
   @type email_type() :: String.t()
   @spec disposable(email_type()) :: String.t() | boolean()
-  def disposable(email) when is_binary(email) do
+  def disposable(email) do
     kb_url = Application.get_env(:xadara, :kb_url)
 
-    case Xadara.Base.get!("#{kb_url}#{URI.encode_www_form(email)}") do
+    case Xadara.Base.get!("#{kb_url}#{email}") do
       %HTTPoison.Response{body: body, status_code: 200} ->
-        Poison.decode!(body)
+       Poison.encode!(body)
 
       %HTTPoison.Response{status_code: status_code} when status_code > 399 ->
         IO.inspect(status_code, label: "STATUS_CODE")

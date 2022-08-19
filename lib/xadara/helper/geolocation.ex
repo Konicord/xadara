@@ -50,10 +50,7 @@ defmodule Xadara.Geo do
 
     case Xadara.ApiBase.get!("#{geo_url}#{URI.encode_www_form(ip)}") do
       %HTTPoison.Response{body: body, status_code: 200} ->
-        # for console
-        Poison.decode!(body)
-
-      # body # for web
+        body
 
       %HTTPoison.Response{status_code: status_code} when status_code > 399 ->
         IO.inspect(status_code, label: "STATUS_CODE")

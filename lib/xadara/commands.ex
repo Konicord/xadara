@@ -1,13 +1,12 @@
 defmodule Xadara.Commands do
   def list_of_commands() do
     %{
-      "test" => "Test the application",
-      "random" => "Generate a random name",
-      "qr" => "Generate a QR code",
+      "/random" => "Generate a random name",
+      "/qr/ip" => "Generate a QR code",
       "ip" => "Get your public IP address",
-      "disposable" => "Check if an email is disposable",
-      "epoch" => "Get the current epoch",
-      "letter" => "Get a random letter"
+      "/epoch" => "Get the current epoch",
+      "/disposable/email" => "Check if an email is disposable",
+      "/geo/ip" => "Get the geographic informations of an IP address",
     }
   end
 end

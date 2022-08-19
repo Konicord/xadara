@@ -7,6 +7,7 @@ import Config
 # any compile-time configuration in here, as it won't be applied.
 # The block below contains prod specific runtime configuration.
 
+# DotenvParser.load_file("/app/config/.env")
 DotenvParser.load_file(".env")
 
 config :xadara,

@@ -2,8 +2,7 @@ defmodule XadaraWeb.MainController do
   use XadaraWeb, :controller
 
   def index(conn, _params) do
-    # TODO: create docs with astro
-    path = "https://github.com"
+    path = "https://github.com/vKxni/xadara-api"
     conn |> redirect(external: path) |> halt()
   end
 end
